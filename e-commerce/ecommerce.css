@@ -1,0 +1,159 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and General Layout */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.navbar {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 24px;
+    position: fixed;
+}
+
+/* Layout containing sidebar and products */
+.layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+}
+
+/* Sidebar */
+.sidebar {
+    flex: 1;
+    height: 100%;
+    width: 200px;
+    background-color: #333;
+    color: white;
+    padding: 25px;
+    position: fixed; /* Fixes the sidebar in place */
+    top: 55px; /* Position it below the navbar */
+    left: 0;
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+}
+
+/* Products Grid */
+#products {
+    margin-left: 220px; /* Leave space for the fixed sidebar */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    flex-wrap: wrap;
+    gap: 40px;
+    flex: 1;
+    padding: 25px;
+}
+
+/* Product Card Styling */
+.product-card {
+    width: 100%;
+    max-width: 250px; /* Max width of the card */
+    height: auto; /* Auto height to maintain aspect ratio */
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; /* Hide any content that overflows the card */
+    transition: box-shadow 0.3s ease; /* Smooth shadow transition */
+}
+
+.product-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+/* Product Image Styling */
+.product-card img {
+    width: 100%; /* Make the image fill the card width */
+    height: 150px; /* Set the height of the image */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+    border-radius: 4px; /* Rounded corners for image */
+}
+
+/* Product Title */
+.product-card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    text-align: center;
+    color: #333;
+}
+
+/* Product Description */
+.product-card p {
+    margin: 10px 0;
+    font-size: 14px;
+    text-align: center;
+    color: #666;
+    overflow: hidden; /* Hide overflow text */
+}
+
+/* Price Styling */
+.product-card .price {
+    font-weight: bold;
+    font-size: 16px;
+    color: #007bff;
+    margin: 10px 0;
+}
+
+/* Button Styling */
+.product-card button {
+    margin-top: auto; /* Push the button to the bottom of the card */
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Smooth color transition */
+}
+
+.product-card button:hover {
+    background-color: #0056b3; /* Darker color on hover */
+}
+
+/* Category and Rating */
+.product-card .category,
+.product-card .rating {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    margin: 5px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: relative; /* Remove fixed positioning on small screens */
+        height: auto; /* Auto height for smaller screens */
+    }
+
+    #products {
+        margin-left: 0; /* Remove left margin on small screens */
+    }
+}
